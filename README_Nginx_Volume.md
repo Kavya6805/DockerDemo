@@ -39,7 +39,7 @@ Open **http://localhost:8080** → shows "Hello from a mounted volume!"
 
 ### Step 4 — Prove it's live (no rebuild needed)
 ```bash
-echo "<h1>Updated content!</h1>" > index.html
+echo '<h1>Updated content!</h1>' > index.html
 ```
 > Refresh the browser — the change appears immediately. Since it's a bind mount, nginx is reading directly from the host file in real time; nothing needs to be rebuilt or restarted.
 
