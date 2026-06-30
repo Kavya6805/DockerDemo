@@ -71,6 +71,12 @@ docker exec box2 cat /data/file.txt
 docker network create app-net
 docker run -d --name db --network app-net alpine sleep infinity
 docker run -d --name web --network app-net nginx
+docker exec -it nginx bash
+# Update your system package list
+sudo apt update
+
+# Install the ping utility package
+sudo apt install iputils-ping -y
 docker exec web ping -c 3 db
 ```
 > Both containers join the custom bridge network `app-net`. Docker's built-in DNS lets `web` resolve `db` by container name — the `ping` succeeds without ever specifying an IP address. (The default bridge network does NOT support this; a custom network is required.)
