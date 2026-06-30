@@ -69,7 +69,7 @@ docker exec box2 cat /data/file.txt
 **Answer:**
 ```bash
 docker network create app-net
-docker run -d --name db --network app-net mysql:8 -e MYSQL_ROOT_PASSWORD=pass
+docker run -d --name db --network app-net alpine sleep infinity
 docker run -d --name web --network app-net nginx
 docker exec web ping -c 3 db
 ```
